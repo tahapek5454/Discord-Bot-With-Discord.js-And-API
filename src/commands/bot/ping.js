@@ -3,11 +3,13 @@ import {EmbedBuilder} from "discord.js"
 // burada gelen genel komutlara karşı nasıl cevap vereceğimizi yansıttıüımız yerler
 export default {
     name:"ping",
-    execute(message){
+    execute(params){
+        // params bir dizi bize genel metod message ve client yolluyor
+        // nessage için params[0], client için params[1]
         
-        const discod_ping = message.client.ws.ping
+        const discod_ping = params[0].client.ws.ping
         // message dan client e ulaştık ordan web sockete ordan da pinge discord.Js :)
-        const bot_ping =  Math.abs(message.createdTimestamp - Date.now()) 
+        const bot_ping =  Math.abs(params[0].createdTimestamp - Date.now()) 
         
 
         // şu anki zamandan mesajın oluşumunu çıkardım
@@ -18,6 +20,6 @@ export default {
             {name:"Discord Ping", value:`${discod_ping} ms`, inline:true},
             {name:"Bot Ping", value: `${bot_ping} ms`, inline:true})
         
-        message.reply({embeds: [response]})
+        params[0].reply({embeds: [response]})
     },
 }

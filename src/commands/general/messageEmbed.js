@@ -1,0 +1,21 @@
+import {EmbedBuilder} from "discord.js"
+
+export default {
+    name:'bilgi',
+    execute(params){
+        var response = new EmbedBuilder()
+            .setDescription("Ben bu kanala hizmet etmek için varım\n\u200b")
+            .setColor("Orange")
+            .setAuthor({name:"Test Botu",iconURL : params[1].user.displayAvatarURL(), url:"https://github.com/tahapek5454"})
+            // iconURL : client.user.displayAvatarURL(), client de gonderbilsek eklenebili
+            .setFooter({text:"Test Botu Hizmetinizdedir."})
+            .setTimestamp()
+            .addFields(
+                {name : "Developer", value: "Taha Pek", inline:true},
+                {name: "\u200b", value:"[Gihtub Hesabım](https://github.com/tahapek5454)", inline:true})
+
+            params[0].channel.send({content:"Benim Hakkımdaki Bilgiler Şu Şekildedir", embeds:[response]})
+
+    }
+}
+
