@@ -14,7 +14,6 @@ var client = new Client({
 
 
 // event loader bize eventlerimizi yükleuecek
-
 readdirSync("./events")
 .filter(file => file.endsWith('.js'))
 .forEach(async file=>{
@@ -23,6 +22,24 @@ readdirSync("./events")
     // beklemek icin await koyduk 
     // event e biz bakarsan bir fonksiyon gonderdik, parametre olrak client alıyor
     event.default(client)
+})
+
+// comand Loader bize commandlerimi yükleyecek
+// commands i bir collection olarak clientin altına tanımlıyoruz
+client.commands = new Collection()
+readdirSync("./commands").forEach(category =>{
+    // biz commands altındaki klasör adlarına ulaştık
+    // klosörlerin içindeki dosyalara da ulaşalım
+    readdirSync(`./commands/${category}`).forEach(async file =>{
+        // belirtilen dosya isimlerini de aldık şimdi bunları import edelim
+        const command = await import(`./commands/${category}/${file}`).then(c => c.default)
+        // durmadan default yazmamak için oraya direkt defaul döndürdüm
+
+        // simdi bunu client altındaki commands adındaki collectiona ekleyelim
+        client.commands.set(command.name, command)
+        // bu sekilde key valuesunı vererek ekledik
+        // key burda tanımladığımız isim value ise belirttiğimiz obje oldu
+    })
 })
 
 
