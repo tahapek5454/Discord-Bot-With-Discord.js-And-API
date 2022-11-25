@@ -77,4 +77,4 @@ function myCollection(){
 
 // client login ile botumuzu login ediyoruz
 client.login(process.env.TOKEN)
-// MTA0MzgyNjA0NzA4MDIwMjI3MQ.GI2pYq.1FbeS9K7u0yy-AAe_ThXfQvFXVlE085Z3e4TZg
+
