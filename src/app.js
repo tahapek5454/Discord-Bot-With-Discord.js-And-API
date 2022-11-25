@@ -12,7 +12,13 @@ var client = new Client({
 // yani biz mesaj okumasını mı istiyoruz, girilen yeni kullanıcıya selam vermisini mi vb.
 // kısacası almak istedgimiz veri
 
+// Assigments
+client.commands = new Collection()
 
+client.emoji = emojiName => {
+    return client.guilds.cache.get(process.env.OWNER_GUILD_ID).emojis.cache.find(e=> e.name == emojiName) || ":smile:"
+    // burası benim belirlediğim sunucudaki emojileri çekip clientın içine atacak bulamzsa smile atacak
+}
 // event loader bize eventlerimizi yükleuecek
 readdirSync("./events")
 .filter(file => file.endsWith('.js'))
@@ -26,7 +32,6 @@ readdirSync("./events")
 
 // comand Loader bize commandlerimi yükleyecek
 // commands i bir collection olarak clientin altına tanımlıyoruz
-client.commands = new Collection()
 readdirSync("./commands").forEach(category =>{
     // biz commands altındaki klasör adlarına ulaştık
     // klosörlerin içindeki dosyalara da ulaşalım

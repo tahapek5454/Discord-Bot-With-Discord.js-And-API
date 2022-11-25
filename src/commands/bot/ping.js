@@ -17,7 +17,8 @@ export default {
         const response = new EmbedBuilder()
         response.setColor("Orange")
         response.addFields(
-            {name:"Discord Ping", value:`${discod_ping} ms`, inline:true},
+            {name:`${params[1].emoji("taha")} Discord Ping`, value:`${discod_ping} ms`, inline:true},
+            // params[1] : client oluyor taha emojiye verdigim isim
             {name:"Bot Ping", value: `${bot_ping} ms`, inline:true})
         
         params[0].reply({embeds: [response]})
