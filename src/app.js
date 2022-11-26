@@ -19,6 +19,11 @@ client.emoji = emojiName => {
     return client.guilds.cache.get(process.env.OWNER_GUILD_ID).emojis.cache.find(e=> e.name == emojiName) || ":smile:"
     // burası benim belirlediğim sunucudaki emojileri çekip clientın içine atacak bulamzsa smile atacak
 }
+
+client.embed = await import("./utils/bot/embed.js").then(m=>m.default)
+// clientımın altına embedi kaydettim artık burdaki fonksiyona client embed üzerinden erişebilirim
+
+
 // event loader bize eventlerimizi yükleuecek
 readdirSync("./events")
 .filter(file => file.endsWith('.js'))

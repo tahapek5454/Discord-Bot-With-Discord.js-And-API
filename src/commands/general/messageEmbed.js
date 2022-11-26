@@ -15,7 +15,9 @@ export default {
             .addFields(
                 {name : "Developer", value: "Taha Pek", inline:true},
                 {name: "\u200b", value:"[Gihtub Hesabım](https://github.com/tahapek5454)", inline:true})
-
+            
+            // burada embedi kendimiz oluşturduk clientın altındaki embed fonksiyonumuzu kullanmadık
+            // onun örneğini farklı bir yerde yapalım
             message.channel.send({content:"Benim Hakkımdaki Bilgiler Şu Şekildedir", embeds:[response]})
 
     }
