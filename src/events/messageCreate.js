@@ -22,7 +22,7 @@ export default client =>{
 
          try {
             // eger sıkınıt yoksa commandsmiz içindeki fonksiyonu calistiralim
-            command.execute([message, client])
+            command.execute(message)
             
          } catch (error) {
             console.log(error)
