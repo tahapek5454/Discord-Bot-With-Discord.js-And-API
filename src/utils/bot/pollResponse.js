@@ -56,6 +56,6 @@ export default (interaction) => {
                 })
         }
 
-        const result = import("../db/crudMongo.js").then(result=> result.default(response))
+        const result = import("../db/crudMongo.js").then(result=> result.addValue(response))
         interaction.reply({ embeds: [myEmbed], ephemeral: true })
 }
