@@ -2,6 +2,7 @@ import {Client, Collection} from "discord.js"
 import "dotenv/config" // ben bunu .env kullanmak icin import ediyorum npm install dotenv
 import {readdirSync} from "fs" // bu modül bizim dosyaları kontrol etmememizi saglayacak
 
+
 var client = new Client({
     intents:["Guilds", "GuildMessages", "MessageContent",],
     // guilds sunucumuzla alakalı bir yapı, guildMessages sunucu mesajları, MessageContent messajların içerini almak
@@ -23,6 +24,8 @@ client.emoji = emojiName => {
 client.embed = await import("./utils/bot/embed.js").then(m=>m.default)
 // clientımın altına embedi kaydettim artık burdaki fonksiyona client embed üzerinden erişebilirim
 
+const db = import("./utils/db/connectionMongo.js").then(db=> db.default())
+// dataBase e Baglanma islemini gerceklestirdik
 
 // event loader bize eventlerimizi yükleuecek
 readdirSync("./events")
