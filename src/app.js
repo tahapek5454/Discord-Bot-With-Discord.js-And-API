@@ -25,7 +25,7 @@ client.embed = await import("./utils/bot/embed.js").then(m=>m.default)
 // clientımın altına embedi kaydettim artık burdaki fonksiyona client embed üzerinden erişebilirim
 
 const db = import("./utils/db/connectionMongo.js").then(db=> db.default())
-// dataBase e Baglanma islemini gerceklestirdik
+// dataBase e Baglanma islemini gerceklestirdikk
 
 // event loader bize eventlerimizi yükleuecek
 readdirSync("./events")
