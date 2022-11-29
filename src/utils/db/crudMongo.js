@@ -8,11 +8,11 @@ var addValue = (response)=>{
 
 var getValues = (collection) =>{
 
-    collection.find().then(result=>console.log(result))
+   return collection.find().catch(err=>console.log("Hata Yakalandı!",err))
 }
 
 var getValue = (collection, userName)=>{
-    collection.find({"userName":userName}).then(result=>console.log(result)).catch(err=>console.log('hata',err))
+    return collection.find({"userName":userName}).catch(err=>console.log('hata',err))
 }
 
 
